@@ -5,7 +5,7 @@ with open("README.md", "r", encoding="utf-8") as f:
 
 
 name = "htmlwebshot"
-version = "0.1.2.1.1"
+version = "0.1.2.1.2"
 author = "1Danish-00"
 author_email = "danish@ultroid.tech"
 desc = "Create Web Preview Images From url, Html-CSS ,svg, any other readable file or string."
