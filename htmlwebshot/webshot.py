@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 
 import os
+import tempfile
 
 from .config import Config
 from .shotter import Clickit
@@ -87,7 +88,9 @@ class WebShot:
         </body>
         </html>
         """
-        file = ".html"
+        import tempfile
+        file = tempfile.NamedTemporaryFile()
+        #file = ".html"
         with open(file, "w") as f:
             f.write(new_html)
             f.close()
