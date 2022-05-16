@@ -89,7 +89,7 @@ class WebShot:
         </html>
         """
         import tempfile
-        f = tempfile.NamedTemporaryFile(delete=False, encoding='utf-8')
+        f = tempfile.NamedTemporaryFile(mode='w',delete=False, encoding='utf-8')
         file = f.name
         #file = ".html"
         f.write(new_html.encode('utf-8'))
