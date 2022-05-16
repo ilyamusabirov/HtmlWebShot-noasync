@@ -93,7 +93,7 @@ class WebShot:
         file = f.name
         #file = ".html"
         #
-        f.write(new_html.encode('utf-8'))
+        f.write(new_html)
         #f.close()
         self.cache = file
         self.file = file
