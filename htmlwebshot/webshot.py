@@ -92,6 +92,7 @@ class WebShot:
         f = tempfile.NamedTemporaryFile(mode='w',delete=False, encoding='utf-8')
         file = f.name
         #file = ".html"
+        #
         f.write(new_html.encode('utf-8'))
         #f.close()
         self.cache = file
