@@ -1,6 +1,5 @@
 # -*- coding: utf-8 -*-
 
-import asyncio
 import re
 import subprocess
 import time
@@ -147,42 +146,3 @@ class Clickit:
                 catch = re.findall("Error:(.*)", proc)
                 raise SystemError(catch)
         return data[-1]
-
-    async def _sh(self, data):
-        """running setup data async
-
-        parameters :: data :: list :: returned from func setup
-
-        return :: output logs
-        """
-        process = await asyncio.create_subprocess_exec(
-            *data, stdout=asyncio.subprocess.PIPE, stderr=asyncio.subprocess.PIPE
-        )  # nosec
-        _, out = await process.communicate()
-        return out.decode().strip()
-
-    async def create_stuff_async(self, *args):
-        """creating image from args async
-
-        raise :: SystemError :: while processing data
-
-        return :: str :: image path
-
-        """
-        setups = Clickit.make_setup(*args)
-        err = await self._sh(setups)
-        if err:
-            # issue with wkhtmltoimage
-            # sometimes can't save on a specific file
-            # so, for bypass it change name & rename again on main return
-            if "Could not write to output file" in err:
-                setups.remove(setups[-1])
-                setups.append(str(time.time()).split(".")[0] + ".jpg")
-                err = await self._sh(setups)
-                if err and "Error:" in err:
-                    catch = re.findall("Error:(.*)", err)
-                    raise SystemError(catch)
-            elif re.search("Error:", err):
-                catch = re.findall("Error:(.*)", err)
-                raise SystemError(catch)
-        return setups[-1]
