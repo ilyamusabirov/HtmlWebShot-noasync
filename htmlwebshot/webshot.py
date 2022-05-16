@@ -91,7 +91,7 @@ class WebShot:
         import tempfile
         file = tempfile.NamedTemporaryFile()
         #file = ".html"
-        with open(file, "w") as f:
+        with open(file.name, "w") as f:
             f.write(new_html)
             f.close()
         self.cache = file
