@@ -88,7 +88,8 @@ class WebShot:
         </body>
         </html>
         """
-        file = os.tmpnam()
+        import tempfile
+        file = tempfile.mkstemp(text=True)[1]
     #    f = tempfile.NamedTemporaryFile(mode='w',delete=False, encoding='utf-8')
         with open(file, 'w') as f:
             f.write(new_html)
