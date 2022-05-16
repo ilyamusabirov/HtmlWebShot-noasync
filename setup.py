@@ -14,7 +14,7 @@ url = "https://github.com/1Danish-00/htmlwebshot/"
 project_urls = {
     "Bug Tracker": "https://github.com/1Danish-00/htmlwebshot/issues",
 }
-reqs = ["asyncio"]
+reqs = []
 keys = [
     "screenshot",
     "Webshot",
