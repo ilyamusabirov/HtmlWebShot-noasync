@@ -76,7 +76,7 @@ class WebShot:
             hstr = open(hfile).read()
         if cfile:
             cstr = open(cfile).read()
-        new_html = bf"""\
+        new_html = f"""\
         <html>
         <head>
             <style>
@@ -89,11 +89,11 @@ class WebShot:
         </html>
         """
         import tempfile
-        f = tempfile.NamedTemporaryFile()
+        f = tempfile.NamedTemporaryFile(delete=False, encoding='utf-8')
         file = f.name
         #file = ".html"
-        f.write(new_html)
-        f.close()
+        f.write(new_html.encode('utf-8'))
+        #f.close()
         self.cache = file
         self.file = file
 
