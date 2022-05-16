@@ -76,7 +76,7 @@ class WebShot:
             hstr = open(hfile).read()
         if cfile:
             cstr = open(cfile).read()
-        new_html = f"""\
+        new_html = bf"""\
         <html>
         <head>
             <style>
