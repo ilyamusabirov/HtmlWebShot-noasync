@@ -89,11 +89,11 @@ class WebShot:
         </html>
         """
         import tempfile
-        file = tempfile.NamedTemporaryFile()
+        f = tempfile.NamedTemporaryFile()
+        file = f.name
         #file = ".html"
-        with open(file.name, "w") as f:
-            f.write(new_html)
-            f.close()
+        f.write(new_html)
+        f.close()
         self.cache = file
         self.file = file
 
